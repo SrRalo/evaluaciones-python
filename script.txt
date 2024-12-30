@@ -1,0 +1,101 @@
+-- Crear esquema (opcional, ya que Supabase trabaja directamente con schemas predeterminados como "public")
+CREATE SCHEMA IF NOT EXISTS evaluacionesTI;
+
+-- -----------------------------------------------------
+-- Table evaluacionesTI.Carreras
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS evaluacionesTI.Carreras (
+  id_carrera SERIAL PRIMARY KEY,
+  nombre_carrera VARCHAR(45) NOT NULL
+);
+
+-- -----------------------------------------------------
+-- Table evaluacionesTI.Estudiante
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS evaluacionesTI.Estudiante (
+  id_estudiante SERIAL PRIMARY KEY,
+  nombre_estudiante VARCHAR(45) NOT NULL,
+  contacto_estudiante VARCHAR(45) NOT NULL,
+  id_carrera INT NOT NULL,
+  CONSTRAINT fk_Estudiante_Carreras FOREIGN KEY (id_carrera)
+    REFERENCES evaluacionesTI.Carreras (id_carrera)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION
+);
+
+-- -----------------------------------------------------
+-- Table evaluacionesTI.Docentes
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS evaluacionesTI.Docentes (
+  id_docente SERIAL PRIMARY KEY,
+  nombre_docente VARCHAR(45) NOT NULL,
+  contacto_docente VARCHAR(45) NOT NULL
+);
+
+-- -----------------------------------------------------
+-- Table evaluacionesTI.Evaluacion_Asignada
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS evaluacionesTI.Evaluacion_Asignada (
+  id_evaluacion_asignada SERIAL PRIMARY KEY,
+  tipo_evaluacion VARCHAR(45) NOT NULL,
+  nombre_evaluacion VARCHAR(45) NOT NULL
+);
+
+-- -----------------------------------------------------
+-- Table evaluacionesTI.Detalle_EvaEstudiante
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS evaluacionesTI.Detalle_EvaEstudiante (
+  id_evaEstudiante SERIAL PRIMARY KEY,
+  nota_evaEstudiante FLOAT NOT NULL,
+  id_estudiante INT NOT NULL,
+  id_evaluacion_asignada INT NOT NULL,
+  CONSTRAINT fk_Detalle_EvaEstudiante_Estudiante FOREIGN KEY (id_estudiante)
+    REFERENCES evaluacionesTI.Estudiante (id_estudiante)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT fk_Detalle_EvaEstudiante_Evaluacion_Asignada FOREIGN KEY (id_evaluacion_asignada)
+    REFERENCES evaluacionesTI.Evaluacion_Asignada (id_evaluacion_asignada)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION
+);
+
+-- -----------------------------------------------------
+-- Table evaluacionesTI.Detalle_EvaDocente
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS evaluacionesTI.Detalle_EvaDocente (
+  id_evaDocente SERIAL PRIMARY KEY,
+  nota_evaDocente FLOAT NOT NULL,
+  id_docente INT NOT NULL,
+  id_evaluacion_asignada INT NOT NULL,
+  CONSTRAINT fk_Detalle_EvaDocente_Docentes FOREIGN KEY (id_docente)
+    REFERENCES evaluacionesTI.Docentes (id_docente)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT fk_Detalle_EvaDocente_Evaluacion_Asignada FOREIGN KEY (id_evaluacion_asignada)
+    REFERENCES evaluacionesTI.Evaluacion_Asignada (id_evaluacion_asignada)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION
+);
+
+-- -----------------------------------------------------
+-- Table evaluacionesTI.Usuarios
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS evaluacionesTI.Usuarios (
+  username VARCHAR(10) PRIMARY KEY,
+  password VARCHAR(10) NOT NULL,
+  user_role VARCHAR(45) NOT NULL
+);
+
+
+
+
+###################################################
+■Formulario por cada tabla:
+Carrera:X
+Docente:X
+■Formulario mas de una tabla:
+▪︎Asignar estudiante a carrera ( se lee la tabla carrera y se guarda a la tabla estudiante)X
+▪︎Asignar evaluación del detalle de docente (se lee la tabla docente y evaluación asignada y se guarda en la tabla detalle docente)X
+▪︎Asignar la nota evaluación al estudiante (se lee la tabla estudiante y la evaluación asignada y se guarda de detalle estudiante)X
+
+Por cada formulario debe tener cada parámetro de consulta del estudianteXX

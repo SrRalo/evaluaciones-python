@@ -1,0 +1,9 @@
+registro estudiante: crear combobox con las carreras ingresadas X
+
+registro docente: agrgar input para la cedula X
+
+consulta carrera: que tambien muestre cuantos estudiantes estan matriculados en dicha carrera X
+
+consulta evaluacion a estudiante y docente: colocar nombres de los que e consultan X
+
+crear formulario para registrar carrera  X 

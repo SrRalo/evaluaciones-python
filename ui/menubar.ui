@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>800</width>
+    <height>600</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Evaluaciones TI</string>
+  </property>
+  <widget class="QWidget" name="centralwidget"/>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>800</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuRegistrar">
+    <property name="title">
+     <string>Registrar</string>
+    </property>
+    <addaction name="actionRegistrar_Evaluaci_n"/>
+    <addaction name="actionRegistrar_Detalle_de_Evaluaci_n_a_Estudiante"/>
+    <addaction name="actionRegistrar_Detalle_de_Evaluaci_n_a_Docente"/>
+   </widget>
+   <widget class="QMenu" name="menuConsultar">
+    <property name="title">
+     <string>Consultar</string>
+    </property>
+    <addaction name="actionConsultar_Detalles_de_Carrera"/>
+    <addaction name="actionConsultar_Evaluaci_n_Estudiante"/>
+    <addaction name="actionConsultar_Evaluaci_n_Docente"/>
+   </widget>
+   <widget class="QMenu" name="menuActualizar">
+    <property name="title">
+     <string>Actualizar</string>
+    </property>
+    <addaction name="actionAactualizar_Contrase_a"/>
+   </widget>
+   <widget class="QMenu" name="menuReporte">
+    <property name="title">
+     <string>Reporte</string>
+    </property>
+    <addaction name="actionReporte_Evaluaci_n_Estudiante"/>
+    <addaction name="actionReporte_Evaluaci_n_Docente"/>
+   </widget>
+   <widget class="QMenu" name="menuSesi_n">
+    <property name="title">
+     <string>Sesión</string>
+    </property>
+    <addaction name="actionSalir"/>
+   </widget>
+   <addaction name="menuRegistrar"/>
+   <addaction name="menuConsultar"/>
+   <addaction name="menuActualizar"/>
+   <addaction name="menuReporte"/>
+   <addaction name="menuSesi_n"/>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+  <action name="actionRegistrar_Evaluaci_n">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>Registrar Evaluación</string>
+   </property>
+  </action>
+  <action name="actionRegistrar_Detalle_de_Evaluaci_n_a_Estudiante">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>Registrar Detalle de Evaluación a Estudiante</string>
+   </property>
+  </action>
+  <action name="actionRegistrar_Detalle_de_Evaluaci_n_a_Docente">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>Registrar Detalle de Evaluación a Docente</string>
+   </property>
+  </action>
+  <action name="actionConsultar_Detalles_de_Carrera">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>Consultar Detalles de Carrera</string>
+   </property>
+  </action>
+  <action name="actionConsultar_Evaluaci_n_Estudiante">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>Consultar Evaluación Estudiante</string>
+   </property>
+  </action>
+  <action name="actionConsultar_Evaluaci_n_Docente">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>Consultar Evaluación Docente</string>
+   </property>
+  </action>
+  <action name="actionAactualizar_Contrase_a">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>Actualizar Contraseña</string>
+   </property>
+  </action>
+  <action name="actionReporte_Evaluaci_n_Estudiante">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>Reporte Evaluación Estudiante</string>
+   </property>
+  </action>
+  <action name="actionReporte_Evaluaci_n_Docente">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>Reporte Evaluación Docente</string>
+   </property>
+  </action>
+  <action name="actionSalir">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>Salir</string>
+   </property>
+  </action>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
